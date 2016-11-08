@@ -1,0 +1,69 @@
+* {
+ margin: 0;
+}
+body {
+    min-width: 980px;
+    background: #e2e2e2;
+}
+
+#container {
+	position: relative;/*1.父容器设置相对定位*/
+	/*left: 50%;*/
+	width: 680px;/*5.设置固定宽高只显示一张图片*/
+}
+
+#img-index {
+	position: absolute;/*2.放图片的子容器设置绝对定位，让其相对于父容器定位*/
+	overflow: hidden;/*4.让多余的图片隐藏*/
+	height: 450px;
+	z-index: 1;
+}
+
+#img-index img {
+	/*width: 300px;*/	/*如果父容器的宽度小于所有图片加起来的宽度图片会在下面显示*/
+	float: left;/*3.让图片左浮动，所有图片排列成一列显示*/
+}
+
+#circles {
+	position: absolute;
+	margin-top: 350px;
+	margin-left: 200px;
+	list-style: none;
+	z-index: 2;	/*高于图片显示*/	
+}
+
+#circles li {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	margin-left: 10px;
+	border-radius: 10px;
+	border: solid 2px #6090B6;
+	box-sizing: border-box;	
+}
+
+#items {
+	position: absolute;
+	top: 480px;
+	margin-left: 250px;
+}
+
+.arrow {
+	position: absolute;
+	cursor: pointer;
+	width : 150px;
+	height: 300px;
+	z-index: 2;
+}
+
+#next {
+	right: 20px;
+}
+
+#prev {
+	left: 20px;
+}
+
+.light {
+	background: #6090B6;
+}

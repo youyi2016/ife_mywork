@@ -1,0 +1,55 @@
+body {
+    min-width: 980px;
+    background: #e2e2e2;
+}
+
+#container {
+	width: 600px;
+	
+}
+
+#img-index {
+	width: 600px;
+	height: 500px;
+	z-index: 1;
+}
+
+img {	
+	height: 500px;
+	position: absolute;
+	top: 20px;
+	left: -1000px;
+	
+}
+
+.img_place {
+	left: 50px;
+}
+
+.circles {
+	position: absolute;
+	margin-top: -80px;
+	margin-left: 280px;
+	list-style: none;
+	z-index: 2;	/*高于图片显示*/
+	
+}
+
+.circles li {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	margin-left: 10px;
+	border-radius: 10px;
+	border: solid 2px #6090B6;
+	box-sizing: border-box;	
+}
+
+.light {
+	background: #6090B6;
+}
+
+#items {
+	margin-top: 30px;
+	margin-left: 250px;
+}

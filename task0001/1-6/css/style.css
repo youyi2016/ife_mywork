@@ -1,0 +1,286 @@
+/*div居中*/
+#div1 {
+	margin: 0 auto;
+	width: 960px;
+	height: 60px;
+	text-align: center;
+	background-color: #f00;
+}
+
+#div2 {
+	position: relative;
+	top: 20px;
+	left: 50%;
+	margin-left: -480px;
+	width: 960px;
+	height: 60px;
+	text-align: center;
+	background-color: #f00;
+}
+
+#div21 {
+	margin-top: 20px;
+	text-align: center;
+}
+
+#div211 {
+	width: 960px;
+	height: 60px;
+	margin-top: 20px;
+	background: #F00;
+	display: inline-block;
+}
+
+/*自定义圆角矩形1*/
+#div3 {
+	margin: 40px auto; 
+	width: 180px;
+    background: #000;
+	color: #fff; 
+	font-size: 20px;	
+}
+
+.rtop { 
+    background: #fff;
+   
+}
+
+.rtop div { 
+	height: 1px; 
+	background: #000;
+}
+
+.r1 { 
+	margin: 0 3px;
+}
+
+.r2 { 
+	margin: 0 2px;
+}
+
+.r3 { 
+	margin: 0 1px;
+}
+
+.r4 { 
+	margin: 0 1px; 
+}
+
+/*自适应圆角矩形2*/
+#div4 {
+	width: 180px;
+	margin: 20px auto;
+}
+
+.b0,.b1,.b2,.b3,.b4 {
+	height: 2px;
+}
+
+.b0,.b1,.b2,.b3,.b4,.b {
+	border-left: 2px solid #999;
+	border-right: 2px solid #999;	
+}
+
+.b0 {
+	margin: 0 6px;
+	background: #999;
+}
+
+.b1 {
+	margin: 0 4px;
+}
+
+.b2 {
+	margin: 0 3px;
+	border-width: 2px;
+}
+
+.b3 {
+	margin: 0 2px;
+}
+
+.b4 {
+	height: 2px;
+	margin: 0 1px;
+}
+
+.d1 {
+	background: #fff;
+}
+
+.k {	
+	height: 60px;
+}
+
+/*两列布局1*/
+#div5 {
+	margin: 20px auto;
+	width: 960px;
+	
+}
+
+.div5_a {
+	float: left;
+	width: 50px;
+	height: 50px;
+	background: #f00;	
+}
+
+.div5_b {
+	height: 50px;
+	background: #ff0;
+}
+
+.div5_c {
+	height: 50px;
+	background: #00f;
+}
+
+/*两列布局2*/
+#div6 {
+	margin: 20px auto;
+	width: 960px;
+}
+
+.div6_ab {
+	display: -webkit-flex;
+	display: flex;
+}
+
+.div6_a {
+	width: 50px;
+	height: 50px;
+	background: #f00;	
+}
+
+.div6_b {
+	flex-grow: 1;/*定义属性的缩放比例，默认为0，为1时存在剩余空间就缩放*/
+	height: 50px;
+	background: #ff0;
+}
+
+.div6_c {
+	height: 50px;
+	background: #00f;
+}
+
+/*三列布局1*/
+#div7 {
+	margin: 20px auto;
+	/*width: 960px;*/
+}
+
+.div7_a {
+	float: left;
+	width: 50px;
+	height: 50px;
+	background: #00F;
+}
+
+.div7_b {
+	/*margin: 0 50px;*/
+	height: 50px;
+	background: #f00;
+}
+
+.div7_c {
+	float: right;
+	margin-top: -50px;
+	width: 50px;
+	height: 50px;
+	background: #ff0;
+}
+
+/*三列布局2,双飞翼布局*/
+#div8 {
+	margin: 20px auto;
+	/*width: 960px;*/
+}
+
+.div8_a {
+    float: left;
+    margin-left: -100%;
+	width: 50px;
+	height: 50px;
+	background: #00F;
+}
+
+.div8_b_wrap {
+	float: left;
+	width: 100%;
+	height: 50px;
+	background: #f00;
+}
+
+.div8_c {
+	float: left;
+	margin-left: -50px;
+	width: 50px;
+	height: 50px;
+	background: #ff0;
+}
+
+
+/*三列布局3,加上注释掉的css样式是圣杯布局*/
+#div9 {
+	margin: 100px auto;
+}
+
+.div9_b {
+	float: left;
+	width: 100%;
+	height: 50px;
+	background: #f00;
+}
+
+.div9_a {
+    float: left;
+    /*position: relative;
+    left: -50px;*/
+    margin-left: -100%;
+	width: 50px;
+	height: 50px;
+	background: #00F;
+}
+
+.div9_c {
+	float: left;
+	/*position: relative;
+    right: -50px;*/
+    margin-left: -50px;
+	width: 50px;
+	height: 50px;
+	background: #ff0;
+}
+
+/*浮动布局*/
+
+#div10 {
+	margin-top: 200px;
+	margin-bottom: 200px;
+	overflow: hidden;
+	background: #f00;
+}
+
+.floatbox {
+	float: left;
+	margin: 1em;
+	width: 100px;
+	height: 50px;
+	background: #00F;
+}
+
+
+#div11 {
+	margin-bottom: 80px;
+	margin-top: -180px;
+	background: #f00;
+}
+
+.floatbox2 {
+	display: inline-block;
+	margin: 1em;
+	width: 100px;
+	height: 50px;
+	background: #00F;
+}

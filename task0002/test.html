@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				width: 50px;
+				height: 200px;
+				margin-top: 100px;
+				background-color: #6090B6;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="main">
+			<button id="btn">确定</button>
+			<div id="div1"></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</body>
+	<script>
+		var EventUtil = {
+			//事件处理
+			addHandler: function(element, type, handler) {
+				if(element.addEventListener) {
+					element.addEventListener(type, handler, false);
+				} else if(element.addEvent) {
+					//ie9之前的浏览器的事件监听方式，和上面的方式不一样
+					//attachEvent中的事件类型前有一个on
+					element.attachEvent("on" + type, handler);
+				} else {
+					element["on" + type] = handler;
+				}
+			},
+
+			//ie8即更早版本只支持事件冒泡，ie中使用attachEvent
+			//事件处理程序会在全局作用域中运行，所以回调函数中的this等于window，
+			//而不是当前点击的元素
+			getEvent: function(event) {
+				return event ? event : window.event;
+			},
+
+			//获取目标对象，即当前被点击的元素IE中用event.srcElement获取
+			getTarget: function(event) {
+				return event.target || event.srcElement;
+			},
+
+			preventDefault: function(event) {
+				if(event.preventDefault) {
+					event.preventDefault();
+				} else { //IE
+					event.returnValue = false;
+				}
+			},
+
+			removeHandler: function(element, type, handler) {
+				if(element.removeHandler) {
+					element.removeListener(type, handler, false);
+				} else if(element.detachEvent) {
+					element.detachEvent("on" + type, handler);
+				} else {
+					element["on" + type] = null;
+				}
+			},
+
+			stopPropagation: function(event) {
+				//stopPropagation() 可以同时取消捕获或冒泡
+				if(event.stopPropagation) {
+					event.stopPropagation();
+				} else { //IE只能需要冒泡
+					event.cancelBubble = true;
+				}
+			}
+		};
+
+		document.onmousemove = function(event) {
+			var e = EventUtil.getEvent(event);
+			//不包括页面滚动距离，不是鼠标的实际位置
+			console.log("------------鼠标移动----------------------");
+			console.log("页面坐标位置：" + e.pageX + " " + e.pageY);
+			console.log("客户区坐标：" + e.clientX + " " + e.clientY);
+			console.log("屏幕坐标：" + e.screenX + " " + e.screenY);
+		};
+		var divs = document.getElementsByTagName("div");
+		for(var i = 0; i < divs.length; i++) {
+			var div = divs[i];
+			EventUtil.addHandler(div, "click", function(event) {
+				//EventUtil.addHandler(div, "mousedown", function(event) {
+				var e = EventUtil.getEvent(event);
+				var pageX = e.pageX,
+					pageY = e.pageY;
+
+				//支持IE浏览器  获取鼠标当前坐标
+				if(pageX === undefined) {
+					//document.body混杂模式  document.documentElement标准模式
+					pageX = e.clientX + (document.body.scrollLeft ||
+						document.documentElement.scrollLeft);
+				}
+				if(pageY === undefined) {
+					pageY = e.clientY + (document.body.scrollTop ||
+						document.documentElement.scrollTop);
+				}
+				//鼠标的实际位置
+				console.log("-------------元素被点击之后-----------------");
+				console.log("页面坐标位置：" + pageX + " " + pageY);
+				console.log("客户区坐标：" + e.clientX + " " + e.clientY);
+				console.log("屏幕坐标：" + e.screenX + " " + e.screenY);
+				e.stopPropagation();//阻止冒泡
+			});
+		}
+
+	</script>
+    
+</html>

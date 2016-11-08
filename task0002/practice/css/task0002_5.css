@@ -1,0 +1,40 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#container {
+	height: 1000px;/*必须设置高度才能设置背景色*/
+	background: #E2E2E2;
+}
+
+#container1,#container2 {
+	/*position: relative;*/
+	float: left;
+	margin-left: 50px;
+	margin-top: 50px;
+	width: 150px;
+	height: 500px;
+	background-color: #fff;
+	border: solid 1px #000;
+}
+
+/*  几大浏览器的内核
+    IE内核 --- Trident
+    FireFox内核 --- Gecko(开源)
+    Opero内核 --- Presto
+    Google/Safari内核 --- Webkit(开源)
+ */
+.pitach {
+	position: relative;
+	width: 150px;
+	height: 50px;
+	border: solid 1px #000;	
+	background: #f00;
+	-moz-box-sizing: border-box;/*firefox*/
+	-webkit-box-sizing: border-box;/*safari*/
+	 box-sizing: border-box;
+	 cursor: move;
+}
+
+

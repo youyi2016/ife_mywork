@@ -1,0 +1,20 @@
+#time {
+		margin: 100px auto;
+		text-align: center;
+}
+
+.timestyle {
+	margin-top: 100px;
+	font-size: 28px;
+	font-weight: 900;
+	
+}
+
+.error {
+	color: #FF0000;
+	/*display: inline;*/
+}
+
+input {
+	width: 250px;
+}
