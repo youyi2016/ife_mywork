@@ -136,10 +136,7 @@ function makeType() {
 							  + '</i><div class="delete">'
 							  + '<i class="icon-cancel" id='+ child.subid +'></i>'
 							  +	'</div></li>';	
-				   } 
-				   else { //子类被删除 从列表中移除删除了的子类
-//                    cate[i].childId.splice(j, 1);
-				   }
+				  } 
 				}
 				html += '</ul>';		
 	}
@@ -396,11 +393,7 @@ function getTaskObjArr(chooseId) {
 				  	 //将所有任务的对象存放到数组中
 				  	 if (taskObj) {
 				       taskObjArr.push(taskObj);
-				     }
-				  	 else {//如果当前的任务不存在，说明已经被删除；将任务从子分类中移除
-//				  	    childIds.splice(i, 1);
-//				  	    alert(JSON.stringify(childIds));
-				  	 }
+				    }
 				  }
 				 }
 				  return taskObjArr;
@@ -451,10 +444,7 @@ function makeTask(className, id) {
 				  break;			   
 		 default :
 		        break;
-	}
-  
-    
-     
+	}   
 }
 
 /*
@@ -917,14 +907,15 @@ function checkTitle(title) {
 	 	if (confirm("确定增加吗？")) {
 	 		
  		var chooseId = localStorage.chooseId;
- 		var taskObj = {};
+ 		var taskObj = {
+ 			title: $(".i_taskname").value,
+ 			date: $(".i_tasktime").value,
+ 			//textarea 这里无法通过$(".t_taskcontent").innerHTML或innerText来取得内容
+ 			content: $(".t_taskcontent").value,
+ 			finish: false,
+ 			fatherId: parseInt(chooseId)
+ 		};
  		
-	    taskObj.title = $(".i_taskname").value;
-	    taskObj.date = $(".i_tasktime").value;
-	   //textarea 这里无法通过$(".t_taskcontent").innerHTML或innerText来取得内容
-	    taskObj.content = $(".t_taskcontent").value;	
- 		taskObj.finish = false;
- 		taskObj.fatherId = parseInt(chooseId);
  		addTask(taskObj);
  		//刷新任务列表
  		refreshList(chooseId);
