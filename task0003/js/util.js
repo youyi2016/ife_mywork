@@ -24,92 +24,98 @@ var b = new Function();
 /*
  * 2.1-2
  * 了解值类型和引用类型的区别，了解各种对象的读取、遍历方式
+ * 2018-7-26 一年前写的明显没达到题目要求，要实现一个深拷贝
  */
 // 使用递归来实现一个深度克隆，可以复制一个目标对象，返回一个完整拷贝
 // 被复制的对象类型会被限制为数字、字符串、布尔、日期、数组、Object对象。不会包含函数、正则对象等
-function cloneObject(src) {
-	// your implement
-	var clone = src;
+//
+// function cloneObject(src) {
+// 	// your implement
+// 	var clone = src;
 
-	switch(Object.prototype.toString.call(src)) {
-		case "[object Number]":
-			clone = src;
-			break;
+// 	switch(Object.prototype.toString.call(src)) {
+// 		case "[object Number]":
+// 			clone = src;
+// 			break;
 
-		case "[object String]":
-			clone = src;
-			break;
+// 		case "[object String]":
+// 			clone = src;
+// 			break;
 
-		case "[object Boolean]":
-			clone = new Boolean(src);
-			break;
+// 		case "[object Boolean]":
+// 			clone = new Boolean(src);
+// 			break;
 
-		case "[object Date]":
-			clone = src;
-			break;
+// 		case "[object Date]":
+// 			clone = src;
+// 			break;
 
-		case "[object Array]":
-			clone = [];
-			// 也可以采用for-in来遍历
-			for(var key = 0; key < src.length; key++) {
-				clone[key] = src[key];
-			}
-			break;
+// 		case "[object Array]":
+// 			clone = [];
+// 			// 也可以采用for-in来遍历
+// 			for(var key = 0; key < src.length; key++) {
+// 				clone[key] = src[key];
+// 			}
+// 			break;
 
-		case "[object Object]":
-			clone = {};
-			//for-in语句可以用来枚举对象的属性
-			for(var key in src) {
-				//不复制原型属性中的值
-				if(src.hasOwnProperty(key)) {
-					clone[key] = src[key];
-				}
-			}
-			break;
+// 		case "[object Object]":
+// 			clone = {};
+// 			//for-in语句可以用来枚举对象的属性
+// 			for(var key in src) {
+// 				//不复制原型属性中的值
+// 				if(src.hasOwnProperty(key)) {
+// 					clone[key] = src[key];
+// 				}
+// 			}
+// 			break;
 
-		default:
-			break;
-	}
-	return clone;
+// 		default:
+// 			break;
+// 	}
+// 	return clone;
+// }
+
+function typeOf(obj) {
+	const toString = Object.prototype.toString;
+	const map = {
+			'[object Boolean]'  : 'boolean',
+			'[object Number]'   : 'number',
+			'[object String]'   : 'string',
+			'[object Function]' : 'function',
+			'[object Array]'    : 'array',
+			'[object Date]'     : 'date',
+			'[object RegExp]'   : 'regExp',
+			'[object Undefined]': 'undefined',
+			'[object Null]'     : 'null',
+			'[object Object]'   : 'object'
+	};
+	return map[toString.call(obj)];
 }
 
-// 测试用例：
-//克隆对象
-var srcObj = {
-	a: 1,
-	b: {
-		b1: ["hello", "hi"],
-		b2: "JavaScript",
-		b3: new Date(1995, 3, 12)
+// deepCopy
+function deepCopy(data) {
+	const t = typeOf(data);
+	let o;
+
+	if (t === 'array') {
+			o = [];
+	} else if ( t === 'object') {
+			o = {};
+	} else {
+			return data;
 	}
-};
-var abObj = srcObj;
-var tarObj = cloneObject(srcObj);
-var noClone = abObj;
 
-srcObj.a = 2;
-srcObj.b.b1[0] = "Hello";
-
-console.log(abObj.a);
-console.log(abObj.b.b1[0]);
-
-console.log(tarObj.b);
-console.log(tarObj.a); // 1
-console.log(tarObj.b.b1[0]); // "hello"
-console.log(tarObj.b.b1[1]); // "hi"
-console.log(tarObj.b.b2); // "JavaScript"
-console.log(tarObj.b.b3); // Date 1995-04-11T16:00:00.000Z
-
-console.log(noClone.a); // 2
-console.log(noClone.b.b1[0]); // "Hello"
-
-//克隆数组
-var arr = [1, 2, 3, 4, 5, "heiei"];
-var arrClone = cloneObject(arr);
-arr[0] = 9;
-console.log(arrClone);
-console.log(arr[0]); //9
-console.log(arrClone[0]); //1
+	if (t === 'array') {
+			for (let i = 0; i < data.length; i++) {
+					o.push(deepCopy(data[i]));
+			}
+	} else if ( t === 'object') {
+			for (let i in data) {
+					o[i] = deepCopy(data[i]);
+			}
+	}
+	return o;
+}
 
 /*
  * 2-1-3

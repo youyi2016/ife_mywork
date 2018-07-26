@@ -127,7 +127,7 @@ function makeType() {
 				childIds = cate[i].childId;
 				html += '<ul class="sub_type">';
 				for (var j=0,len2=childIds.length; j<len2; j++) {
-				   child = getObjBykey(cateSub,"subid",childIds[j]);
+				  child = getObjBykey(cateSub,"subid",childIds[j]);
 					
 					if (child) {
 						html  += '<li class="li_list" id='+ child.subid +'>'

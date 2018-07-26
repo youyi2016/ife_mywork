@@ -1,84 +1,96 @@
 <!DOCTYPE html>
 <html>
-	<head>	
-		<meta charset="UTF-8">
-		<title></title>
-		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="css/fontello.css" />
-		<!-- [if IE 7]>		
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/fontello.css" />
+	<!-- [if IE 7]>		
 		<link rel="stylesheet" href="css/fontello-ie7.css" type="text/css" />
 		<![endif]-->
-	</head>
+</head>
 
-	<body>
-		<div id="main">
-			<header>
-				<p class="title">GTD Tools</p>
-			</header>
-			<div id="content">
-				<div class="list">
-					<ul class="list_wrap">
-						<li class="all_list on">所有任务(<span class="all_count">0</span>)</li>
-						<li>分类列表</li>
-						<ul class="default_list">
-							<li class="d_list">	
-								<i class="icon-folder-open">默认分类(<span class="default_count">0</span>)</i>  
-							</li>
-						</ul>
-						<ul class="sub_list">
-							
-						</ul>
+<body>
+	<div id="main">
+		<header>
+			<p class="title">GTD Tools</p>
+		</header>
+		<div id="content">
+			<div class="list">
+				<ul class="list_wrap">
+					<li class="all_list on">所有任务(
+						<span class="all_count">0</span>)</li>
+					<li>分类列表</li>
+					<ul class="default_list">
+						<li class="d_list">
+							<i class="icon-folder-open">默认分类(
+								<span class="default_count">0</span>)</i>
+						</li>
 					</ul>
-					<div class="addlist" >
-						<i class="icon-plus"></i>
-					</div>
+					<ul class="sub_list">
+
+					</ul>
+				</ul>
+				<div class="addlist">
+					<i class="icon-plus"></i>
 				</div>
-              
-				<div class="task">
-					<nav>
-						<ul class="task_btn">
-							<li class="all active">所有</li>
-							<li class="unfinished">未完成</li>
-							<li class="finished">已完成</li>
-						</ul>
-					</nav>
-					<div class="subtask">
-						<ul class="subtask_wrap">
-						</ul>
+			</div>
+
+			<div class="task">
+				<nav>
+					<ul class="task_btn">
+						<li class="all active">所有</li>
+						<li class="unfinished">未完成</li>
+						<li class="finished">已完成</li>
+					</ul>
+				</nav>
+				<div class="subtask">
+					<ul class="subtask_wrap">
+					</ul>
+				</div>
+				<div class="addtask">
+					<i class="icon-plus add_task"></i>
+				</div>
+			</div>
+
+			<div class="details show">
+				<nav>
+					<div class="task_name">to-do 1</div>
+					<div class="btn">
+						<i class="icon-edit"></i>
+						<i class="icon-check-1"></i>
 					</div>
-					<div class="addtask">
-						<i class="icon-plus add_task"></i>
+				</nav>
+				<div class="task_time">任务日期：2016-10-15</div>
+				<div class="task_content">task0003完成</div>
+			</div>
+
+			<div class="details edit">
+				<nav>
+					<div class="task_name">标题：
+						<input type="text" value="to-do 1" class="i_taskname" placeholder="请输入标题 字数限制10个字符">
+						<span class="tip_name"></span>
 					</div>
+				</nav>
+				<div class="task_time">任务日期：
+					<input type="text" value="2016-10-15" class="i_tasktime" placeholder="请输入日期 格式yyyy-mm-dd">
+					<span class="tip_time"></span>
+				</div>
+				<div class="task_content">
+					<textarea class="t_taskcontent" placeholder="请输入任务，字数限制20个字符">task0001、task0002完成</textarea>
 				</div>
 
-				<div class="details show">
-					<nav>
-						<div class="task_name">to-do 1</div> 
-						<div class="btn">
-						<i class="icon-edit"></i>
-					    <i class="icon-check-1"></i>
-					    </div>
-					</nav>
-					<div class="task_time">任务日期：2016-10-15</div>
-					<div class="task_content">task0003完成</div>
+				<div class="btns">
+					<div class="tip_error"></div>
+					<input type="button" class="confirm" value="保存">
+					<input type="button" class="cancel" value="取消">
 				</div>
-				
-				<div class="details edit">
-					<nav>
-						<div class="task_name">标题：<input type="text" value="to-do 1" class="i_taskname" placeholder="请输入标题 字数限制10个字符"><span class="tip_name"></span></div> 
-					</nav>
-					<div class="task_time">任务日期：<input type="text" value="2016-10-15" class="i_tasktime" placeholder="请输入日期 格式yyyy-mm-dd"><span class="tip_time"></span></div>
-					<div class="task_content"><textarea class="t_taskcontent" placeholder="请输入任务，字数限制20个字符">task0001、task0002完成</textarea></div>
-			        
-			        <div class="btns">
-			        <div class="tip_error"></div>
-			        <input type="button" class="confirm" value="保存">
-			        <input type="button" class="cancel" value="取消">
-			        </div>
-				</div>
-		</div>	
-	</body>
-	<script src="js/util.js" ></script>
-	<script src="js/ie.js" ></script>
-	<script src="js/task0003.js"></script>
+			</div>
+		</div>
+</body>
+<script src="js/util.js"></script>
+<script src="js/ie.js"></script>
+<script src="js/task0003.js"></script>
+
 </html>
